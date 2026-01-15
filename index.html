@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page pour mon Kitty-9albi 💙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            transition: background-color 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        nav button {
+            display: block;
+            width: 200px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            font-family: 'Times New Roman', serif;
+        }
+
+        nav button:hover {
+            transform: translateX(15px) scale(1.05);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        nav button.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            transform: scale(1.08);
+        }
+
+        .content {
+            display: none;
+            padding: 40px 40px 200px 40px;
+            min-height: 100vh;
+            animation: fadeIn 0.6s ease;
+            position: relative;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #accueil { background: linear-gradient(135deg, #40E0D0 0%, #48D1CC 50%, #20B2AA 100%); }
+        #caracteristiques { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        #special { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+        .center-text {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            border: 4px solid #1e90ff;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            max-width: 600px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .center-text h2 {
+            font-size: 2.2em;
+            color: #1e3c72;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .center-image {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .center-image img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .bottom-left-text {
+            margin: 40px auto 40px 50px;
+            padding: 25px;
+            border: 5px solid #FFB6C1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            max-width: 650px;
+            color: #1e3c72;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #1e3c72;
+            font-size: 2.5em;
+            margin: 30px 0 20px;
+            font-weight: bold;
+        }
+
+        .arrow-down {
+            text-align: center;
+            font-size: 3em;
+            color: #1e3c72;
+            margin: 30px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        .main-text {
+            margin: 40px auto;
+            padding: 30px;
+            border: 5px solid #9370DB;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            max-width: 900px;
+            color: #1e3c72;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 1.25em;
+            line-height: 1.8;
+        }
+
+        .image-with-text {
+            margin: 50px auto;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .image-with-text img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .image-text {
+            color: #1e3c72;
+            font-weight: bold;
+            font-size: 1.2em;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .bottom-left-image {
+            margin: 50px 0 50px 50px;
+            max-width: 350px;
+        }
+
+        .bottom-left-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .center-gif {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .center-gif img {
+            max-width: 450px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .final-text {
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            max-width: 850px;
+            color: #1e3c72;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 1.2em;
+            line-height: 1.9;
+            border: 3px solid #87CEEB;
+        }
+
+        .heart {
+            color: #1e90ff;
+            font-size: 1.2em;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @media (max-width: 768px) {
+            nav { left: 10px; bottom: 20px; }
+            nav button { width: 160px; padding: 12px 15px; font-size: 1em; }
+            .content { padding: 20px 20px 200px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Page pour mon Kitty-9albi <span class="heart">💙</span></h1>
+    </header>
+
+    <nav>
+        <button onclick="showPage('accueil')" class="nav-btn active" id="btn-accueil">Page d'accueil</button>
+        <button onclick="showPage('caracteristiques')" class="nav-btn" id="btn-caracteristiques">Caractéristiques</button>
+        <button onclick="showPage('special')" class="nav-btn" id="btn-special">Special Kitty</button>
+    </nav>
+
+    <div id="accueil" class="content active">
+        <div class="center-text">
+            <h2>Je t'aime Kitty-9albi <span class="heart">💙</span></h2>
+        </div>
+        <div class="center-image">
+            <img src="images/KittyBlauKoffer.jpg" alt="Kitty avec valise bleue">
+        </div>
+        <div class="bottom-left-text">
+            Tu es le chat le plus unique de ma vie, ma sha Allah, gravé dans mon cœur bleu wie ein unauslöschliches Tattoo.
+        </div>
+    </div>
+
+    <div id="caracteristiques" class="content">
+        <h2 class="page-title">Ce que j'aime chez toi, ma sha Allah ...</h2>
+        <div class="arrow-down">↓</div>
+        <div class="main-text">
+            Quand nous nous disputons, tu es mon Kitty, celui qui me réconcilie. Quand je dois partir, c'est pour te montrer ce que je ressens... Ton sourire de petit tigre est si unique et sucré comme du miel, 9attouss. Tu es bien la douce rose de mon cœur bleu…
+        </div>
+
+        <div class="image-with-text">
+            <img src="images/Nimr-Kitty.jpg" alt="Nimr Kitty">
+            <div class="image-text">
+                J’adore voir mon 7obbi s’endormir ou se coucher, ça rend mon cœur tout tendre et fragile. Rien que mon 7obbi.
+            </div>
+        </div>
+
+        <div class="bottom-left-image">
+            <img src="images/Kitty-Cooks.jpg" alt="Kitty Cooks">
+        </div>
+
+        <div class="image-with-text" style="margin-top: 100px;">
+            <img src="images/9attussyistad.jpg" alt="Chat chasse">
+            <div class="image-text">
+                J'adore te voir chasser, ma sha Allah. Oh Kitty, je suis si fière de toi, Tabark Allah.
+            </div>
+        </div>
+    </div>
+
+    <div id="special" class="content">
+        <h2 class="page-title">Douce 9attus</h2>
+
+        <div class="center-gif">
+            <img src="images/Kitty-Cooks.jpg" alt="Special Kitty">
+        </div>
+
+        <div class="final-text">
+            Grâce à toi, j'ai appris à aimer comme il se doit. Grâce à toi, j'ai pu découvrir dans ma vie le côté sucré comme du miel de l'amour, ma cha Allah. Tu es la raison pour laquelle mon sourire et mon rire jaillissent du plus profond de mon cœur. Toi… Mon amour… Toi… Dans mon cœur, ton nom est gravé, ancré à jamais. <span class="heart">💙</span>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            alert("Bienvenue a la page pour le 7ilwa-Kitty");
+        };
+
+        function showPage(pageName) {
+            var contents = document.querySelectorAll('.content');
+            var buttons = document.querySelectorAll('.nav-btn');
+            for (var i = 0; i < contents.length; i++) { contents[i].classList.remove('active'); }
+            for (var j = 0; j < buttons.length; j++) { buttons[j].classList.remove('active'); }
+            var pageElement = document.getElementById(pageName);
+            if (pageElement) { pageElement.classList.add('active'); }
+            var buttonElement = document.getElementById('btn-' + pageName);
+            if (buttonElement) { buttonElement.classList.add('active'); }
+        }
+    </script>
+</body>
+</html>
